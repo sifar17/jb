@@ -1,0 +1,68 @@
+<!-- This is pagination section -->
+
+<!-- Pagination... horizontal display of all pages -->
+<nav class="mt-5 pt-5" aria-label="Quote page navigation" >
+    <ul class="mt-5 pagination hor-pagination justify-content-center d-flex flex-wrap">
+
+      <!-- First Page button -->
+      {% if quotes_display_perPage.has_previous %}
+      <li class="page-item my-1">
+        <a class="page-link hor-page-link" href="?page=1#quotes">First</a>
+      </li>
+      <div class="vr mx-2"></div>
+      {% endif %}
+
+      <!-- Previous10 Page button -->
+      {% if current_pageSet != pageSet_display_list.0 %}
+        <li class="page-item my-1">
+          <a class="page-link hor-page-link" href="?page={{previous_pageSet.0}}#quotes">Previous{{pageSet_display}}</a>
+        </li>          
+      {% endif %}
+      
+      <!-- Previous Page button -->
+      {% if quotes_display_perPage.has_previous %}
+        <li class="page-item my-1">
+          <a class="page-link hor-page-link" href="?page={{quotes_display_perPage.previous_page_number}}#quotes">Previous</a>
+        </li>          
+        <div class="vr mx-2"></div>
+      {% endif %}
+      
+      <!-- All Page buttons -->
+      {% for page in current_pageSet %}
+        <li class="page-item my-1">
+          <a class="page-link hor-page-link {% if page == quotes_display_perPage.number %} active {% endif %}" href="?page={{page}}#quotes">{{page}}</a>
+        </li>
+      {% endfor %}
+
+      <!-- Next Page button -->
+      {% if quotes_display_perPage.has_next %}
+      <div class="vr mx-2"></div>
+
+        <li class="page-item my-1">
+          <a class="page-link hor-page-link" href="?page={{quotes_display_perPage.next_page_number}}#quotes">Next</a>
+        </li>
+      {% endif %}
+
+      <!-- Next10 Page button -->
+      {% if current_pageSet != pageSet_display_list|last %}
+        <li class="page-item my-1">
+          <a class="page-link hor-page-link" href="?page={{next_pageSet.0}}#quotes">Next{{pageSet_display}}</a>
+        </li>          
+      {% endif %} 
+      
+      <!-- Last Page button -->
+      {% if quotes_display_perPage.has_next %}
+      <div class="vr mx-2"></div>
+      <li class="page-item my-1">
+        <a class="page-link hor-page-link" href="?page={{quotes_display_perPage.paginator.num_pages}}#quotes">Last</a>
+      </li>
+      {% endif %}
+
+    </ul>
+</nav>
+
+<!-- Pagination Dropdown at bottom -->
+
+<div class="dropdown my-5 text-center">
+  {% include 'moqu/paginationDropdown.html' %}
+</div>

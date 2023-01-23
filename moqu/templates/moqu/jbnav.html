@@ -1,0 +1,35 @@
+<!-- This is JB navbar section -->
+{% load static %}
+
+<div class="row pb-5 d-flex align-items-center">
+
+  <!-- Moqu app box = Moqu app logo + text -->
+  <div class="col-5  mt-5  ">
+    <div class="row  ">
+      <div class="col-6  text-end ">
+        <a href="https://www.amazon.com/dp/B0B7L62LBG/ref=apps_sf_sta" target="_blank">
+          <img class="img-fluid rounded-circle" src="{% static 'moqu/img/logoMoqu.png' %}" alt="Moqu Logo" style="width:2.5rem; height:2.5rem;">
+        </a>
+      </div>
+      <div class="col-6  d-flex align-items-center" style="color: rgba(100, 0, 100, 1); font-weight: 700;">
+        Android
+      </div>
+    </div>   
+  </div>
+
+  <!-- JB box = JB logo + text -->
+  <div class="col-5 offset-lg-1 offset-2 mt-5 ">
+    <div class="row">
+      <div class="col-6 text-end">
+        <a href="{% url 'base:home' %}">
+          <img class="img-fluid rounded-circle" src="{% static 'moqu/img/logoJb.png' %}" alt="JB Logo" style="width:3.0rem; height:3.0rem;">
+        </a>
+      </div>
+      <div class="col-6 d-flex align-items-center" style="color: rgba(100, 0, 100, 1); font-weight: 700;">
+          JB Home
+      </div>
+    </div>
+  </div>
+
+</div>
+

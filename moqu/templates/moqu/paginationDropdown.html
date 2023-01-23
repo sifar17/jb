@@ -1,0 +1,27 @@
+<!-- Pagination Dropdown -->
+<div class="">
+    <button class="btn btn-pagination-ddown btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+       <span style="color: rgba(128, 0, 128, 1);">&#8674;</span> {{quotes_display_perPage.number}}        
+    </button>
+
+    <ul class="dropdown-menu ver-dropdown-menu">
+      {% if paginator_quote.num_pages <= 5 %}
+      <div class="overflow-auto" >
+        {% for pageSet in pageSet_display_list %}
+            {% for page in pageSet %}
+                <li><a class="dropdown-item ver-dropdown-item {% if page == quotes_display_perPage.number %} active {% endif %}" href="?page={{page}}#quotes" >{{page}}</a></li>
+            {% endfor %}
+        {% endfor %}
+      </div>
+      
+      {% else %}
+      <div class="overflow-auto" style="height: 7.7rem;">
+        {% for pageSet in pageSet_display_list %}
+            {% for page in pageSet %}
+                <li><a class="dropdown-item ver-dropdown-item {% if page == quotes_display_perPage.number %} active {% endif %}" href="?page={{page}}#quotes" >{{page}}</a></li>
+            {% endfor %}
+        {% endfor %}
+      </div>
+      {% endif %}
+    </ul>
+</div>

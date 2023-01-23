@@ -1,0 +1,70 @@
+{% load static %}
+
+<!-- Modal -->
+<div class="modal fade " id="jbModal" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1" aria-labelledby="jbModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" >
+    <div class="modal-content p-3">
+        <div class="modal-header" style="border:none;">
+            <h1 class="modal-title fs-5" id="jbModalLabel">Where to G<span style="color: rgba(102, 51, 153, 1);">o</span><span style="color: rgba(102, 51, 153, 1); font-size: 1.5rem;">...</span></h1>
+            <button type="button" class="btn-close modal-btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+
+        <div class="modal-body mt-3 ">
+            
+            <div class="row ">
+                <!-- JB Apps = Moqu + Oaqu -->
+                <div class="col-6 modal-moqu pe-3" >
+                    <div class="vstack gap-3 ">
+                        <div class="">
+                            <a class="a-modal" href="{% url 'moqu:home' %}">
+                                <div class="hstack gap-3" >                  
+                                    <div class="modal-icon" ><img class="img-fluid rounded-circle" src="{% static 'moqu/img/logoMoqu.png' %}" alt="Moqu Logo" style="width:1.5rem; height:1.5rem;"></div>
+                                    <div class="modal-icon-title ">Moqu</div>
+                                </div>
+                            </a>
+                            <p class="mt-3" >
+                                <div class="mb-1 p-modal">
+                                    Want to Go Philosophical?
+                                </div>
+                                <div class="p-modal" >
+                                    Visit Moqu, our platform to get philosophical and intellectual quotes from various sources.
+                                </div>
+                            </p>
+                        </div>
+                    </div>                                 
+                </div>
+                
+                <!-- About & Contact JB -->
+                <div class="col-6 ps-3">
+                    <div class="vstack gap-3">
+                        <!-- About -->
+                        <div class="">
+                            <a class="a-modal {{jbAbout_active}}" href="{% url 'base:about' %}">
+                                <div class="hstack gap-3 ">
+                                    <div class="modal-icon {{jbAbout_active}}" ><i class="fa-solid fa-address-card"></i></div>
+                                    <div class="modal-icon-title {{jbAbout_active}}">About us</div>
+                                </div>
+                            </a>
+                            <p class="mt-2 p-modal" >
+                                Read and know more about us...
+                            </p>                            
+                        </div>
+                        <!-- Contact -->
+                        <div class="">
+                            <a class="a-modal" href="mailto:jayanttobina@gmail.com">
+                                <div class="hstack gap-3 " >                  
+                                    <div class="modal-icon"><i class="fa-solid fa-envelope"></i></div>
+                                    <div class="modal-icon-title">Contact us</div>
+                                </div>
+                            </a>                            
+                            <p class="mt-2 p-modal" >
+                                Have a question? Drop us a mail anytime.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>                      
+        </div>
+    </div>
+    </div>
+</div>

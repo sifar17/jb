@@ -1,0 +1,77 @@
+<!-- This is Know Moqu page -->
+
+{% extends 'moqu/index.html' %}
+
+{% block title %} Know Moqu {% endblock title %}
+
+{% block bannerMoqu %}
+{% endblock bannerMoqu %}
+
+{% block content %}
+
+    <!-- About section -->
+    <div class="col-12 my-5 pb-5 px-4">
+        <p class="p-body"> Hi, I am Moqu. </p> 
+
+        <p class="p-body"> 
+        <strong> Thanks to JB!!</strong> who lent me some space to 
+        present my collection. I am here to 
+        <span class="font-cursive">read out </span>
+        to you quotes from various 
+        sources like movies, anime, comics, personalities, etc. 
+        My objective was to bring out mainly the sources that are 
+        rare (not famous). Why rare? It is either because of the 
+        unavailability of translation from native languages or 
+        because of the unpopularity of the source (or the quote 
+        itself) or may be it was popular once but has now been long 
+        forgotten.
+        </p>
+        
+        <p class="p-body">
+        So, the collection that I am going to read out is mainly the 
+        collection of <span class="font-cursive">highly intellectual</span>, 
+        <span class="font-cursive">philosophical</span> and 
+        <span class="font-cursive">rare</span> sources.
+        </p>
+
+        <p class="p-body">
+        Since these quotes have <span class="font-cursive">
+        deep meaning</span>,<span class="font-cursive"> need 
+        understanding </span> and might be quite 
+        <span class="font-cursive"> unenjoyable</span> to many, so, 
+        I am not very sure how many 
+        of you are 
+        going to gather around here. Still, I am here to read these 
+        out 
+        to the willing ones, to those who are especially looking for 
+        and enjoy such stuff.
+        </p>
+
+        <p class="p-body">
+        <a class="moqu-android" href="https://www.amazon.com/dp/B0B7L62LBG/ref=apps_sf_sta" target="_blank">
+            <i class="fa-brands fa-android align-middle"></i>
+        </a>
+        <strong>Thanks to Amazon</strong> as well!! Along with JB, 
+        you can also find me on the streets of Amazon Appstore 
+        reading out the same quotes. 
+        <a class="p-body-link" href="https://www.amazon.com/dp/B0B7L62LBG/ref=apps_sf_sta" target="_blank">
+            Here is my address
+        </a>
+        on the Amazon Appstore street.
+        </p>
+
+        <p class="p-body ">
+        See you in the 
+        <a class="p-body-link" href="{% url 'moqu:home' %}#quotes">
+        Reading Room!!!
+        </a>
+        </p>
+
+        <p class="p-body mt-5 ">
+        <i class="fa-solid fa-triangle-exclamation" style="color: rgba(128, 0, 128, 1);"></i> 
+        <span class="font-cursive">Caution:</span>  Listening to me may change the way you think. 
+        </p>
+
+    </div>
+
+{% endblock content %}

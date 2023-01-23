@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/fontawe.css' %}">
+  <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'moqu/css/moqu.css' %}">
+  <link rel="icon" type="image/icon" href="{% static 'moqu/img/logo40.png' %}">
+  <title>{% block title %} Moqu {% endblock title %}</title>
+</head>
+
+<body> 
+
+  <!-- Fluid container = Banner at top -->
+  {% block bannerMoqu %}
+  <div class="contaier-fluid bg-moqu-top d-flex align-items-center">
+    {% include 'moqu/banner.html' %}
+  </div>
+  {% endblock bannerMoqu %}
+
+  <!-- Main container = Moqu navbar + Main section -->
+  <div class="container my-5"> <!-- id="quotes" -->
+    <!-- Moqu navbar at top -->
+    {% block moquNavbar %}
+    <div class="my-5 sticky-top" >
+      {% include 'moqu/moquNav.html' %}
+    </div>
+    {% endblock moquNavbar %}
+
+    <!-- Main section = Category + Movie + Quote -->
+    <div id="quotes" class="row py-5">
+
+      {% block content %}
+      <!-- Movie & Category section (at left or top)-->     
+      <div  class="col-lg-3 offset-lg-0 col-8 offset-2 my-5">
+          <div class="row">
+          <!-- Category section -->
+          {% include 'moqu/categorySection.html' %}
+    
+          <!-- Movie section -->
+          {% include 'moqu/movieSection.html' %}
+        </div>
+      </div>
+      
+      <!-- Quote section (at right or bottom)-->
+      <div class="col-lg-8 offset-lg-1 col-10 offset-1 my-5">
+          {% include 'moqu/quoteSection.html' %}
+      </div>
+
+      {% endblock content %}
+    </div>
+      
+  </div>
+  
+  <!-- Fluid container = JB navbar at bottom -->
+  {% block jbNavbar %}
+  <div class="container-fluid mt-5" style="background-image: linear-gradient(to right, rgba(200, 100, 200, 1), rgba(255, 255, 255, 1));">
+    <div class="container">
+      {% include 'moqu/jbnav.html' %}
+    </div>
+  </div>
+  {% endblock jbNavbar %}
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/json2html/2.1.0/json2html.min.js"></script>
+
+  <script src="{% static 'js/popper.js' %}"></script>
+  <script src="{% static 'js/bootstrap.js' %}"></script>
+  <script src="{% static 'js/jquery.js' %}"></script>
+  <script src="{% static 'js/fontawe.js' %}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+  
+</body>
+</html>

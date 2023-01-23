@@ -1,0 +1,557 @@
+/* ====================== Whole body CSS ======================= */
+
+body
+*::selection {
+    background: rgba(128, 0, 128, 0.7);
+    color: rgba(255, 255, 255, 1);
+}
+*::-moz-selection {
+    background: rgba(128, 0, 128, 0.7);
+    color: rgba(255, 255, 255, 1);
+}
+*::-webkit-selection {
+    background: rgba(128, 0, 128, 0.7);
+    color: rgba(255, 255, 255, 1);
+}
+
+html, body {
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 100%;
+    letter-spacing: 0.02em;
+}
+
+/* ====================== ScrollBar CSS ======================= */
+
+::-webkit-scrollbar {
+    width: 0.375rem;
+    height: 0.375rem;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 0.375rem rgba(128, 0, 128, 0.3);    
+    border-radius: 0.625rem;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 0.625rem;
+    height: 0.0625rem;
+    background-image: linear-gradient(to top, rgba(128, 0, 128, 1), rgba(255, 255, 255, 1));
+    box-shadow: inset 0 0 0.375rem rgba(128, 0, 128, 1);   
+}
+
+::-webkit-scrollbar-thumb:horizontal{
+    background-image: linear-gradient(to left, rgba(128, 0, 128, 1), rgba(255, 255, 255, 1));
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-image: linear-gradient(to bottom, rgba(128, 0, 128, 1), rgba(255, 255, 255, 1));
+}
+
+::-webkit-scrollbar-thumb:horizontal:hover{
+    background-image: linear-gradient(to right, rgba(128, 0, 128, 1), rgba(255, 255, 255, 1));
+}
+
+/* ====================== Banner Moqu CSS ======================= */
+
+/* -------------------------- Banner BG ----------------------- */
+.bg-moqu-top {
+    width: 100%;
+    height: 99vh;
+    background-image: linear-gradient(45deg, rgba(128, 0, 128, 1), rgba(200, 100, 200, 1), rgba(128, 0, 128, 1));
+}
+
+/* ------------------------- Turn Arrows ----------------------- */
+div.banner-up-arrow {
+    width:2rem; 
+    height:2rem;
+    background-size:cover;    
+    animation: up-arrow-color-change 10s infinite;
+}
+
+@keyframes up-arrow-color-change {
+    0% {
+        background-image: url('../img/arrowUpWhite.png');    
+    }
+    50% {
+        background-image: url('../img/arrowUpPurple.png');
+        transform: translate(0.5rem);
+    }
+    100% {
+        background-image: url('../img/arrowUpWhite.png');
+    }
+}
+
+div.banner-down-arrow {
+    width:2rem; 
+    height:2rem;
+    background-size:cover;    
+    animation: down-arrow-color-change 10s infinite;
+}
+
+@keyframes down-arrow-color-change {
+    0% {
+        background-image: url('../img/arrowDownWhite.png');
+    }
+    50% {
+        background-image: url('../img/arrowDownPurple.png');
+        transform: translate(-0.5rem);
+    }
+    100% {
+        background-image: url('../img/arrowDownWhite.png');
+    }
+}
+
+/* -------------------------- Banner Text----------------------- */
+.banner-text {
+    font-size: 1.25rem;
+}
+
+span.banner-text-purple {
+    color: rgba(128, 0, 128, 1);
+    font-size: 1.5rem;
+    font-family:cursive;
+}
+
+/* ====================== Moqu Navbar CSS ======================= */
+
+/* -------------------------- Horizontal ----------------------- */
+/* For large Screens */
+
+.nav {
+    --bs-nav-link-hover-color: rgba(100, 0, 100, 1);
+}
+.moqu-nav-hor {
+    color: rgba(100, 0, 100, 1); 
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.moqu-nav-hor:hover {
+    background-color: rgba(255, 245, 255, 0.8);
+    color: rgba(100, 0, 100, 1); 
+    font-weight: 700;
+    letter-spacing: 0.04rem;
+}
+
+.moqu-nav-hor.active {
+    font-weight: 700;
+    letter-spacing: 0.04rem;
+}
+
+.moqu-tab-hor.active {
+    padding-bottom: 0.2rem;
+    border-bottom: 0.125rem solid;
+    border-bottom-color: rgba(128, 0, 128, 1);
+}
+
+/* -------------------------- Vertical ----------------------- */
+
+/* For small Screens */
+
+.navbar-toggler {
+    border: none;
+    font-size: 0.875rem;
+    color: rgba(128, 0, 128, 0.7);
+}
+
+.navbar-toggler-icon {
+    background-image: url('../img/menuDots.png');
+}
+
+.offcanvas-title {
+    color: rgba(100, 0, 100, 1);
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.menu-btn-close {
+    background-image: url('../img/menuClose.png');
+}
+
+.menu-btn-close:hover {
+    border: 0.0625rem solid rgba(128, 0, 128, 0.3);
+}
+
+.menu-btn-close:focus {
+    box-shadow: none;
+    border: 0.0625rem solid rgba(128, 0, 128, 1);
+}
+
+.nav-link.moqu-nav-ver {
+    color: rgba(128, 0, 128, 1); 
+    font-weight: 500;
+    line-height: 3rem;
+    font-size: 1rem;
+}
+
+.nav-link.moqu-nav-ver:hover {
+    background-color: rgba(255, 245, 255, 0.8);
+    font-weight: 600;
+    letter-spacing: 0.04rem;
+}
+
+.nav-link.moqu-nav-ver.active {
+    padding-left: 1.5rem;
+    margin-left: 0.5rem;
+    color: rgba(128, 0, 128, 1);
+    font-weight: 600;
+    border-left: 0.125rem solid;
+    border-left-color: rgba(128, 0, 128, 1);
+    letter-spacing: 0;
+}
+
+.moqu-tab-ver.active {
+    line-height: 2rem;
+    border-bottom: 0.0625rem solid;
+    border-bottom-color: rgba(128, 0, 128, 1);
+}
+
+/* ====================== SearchBar CSS ======================= */
+
+.search-text{
+    box-shadow: none;
+    background-color: transparent;
+    border: none;
+    border-bottom: 0.0625rem solid rgba(0, 0, 0, 0.1);
+    font-size: 0.875rem;
+}
+
+.search-text:hover {
+    border-bottom: 0.125rem solid;
+    border-bottom-color: rgba(128, 0, 128, 0.7);
+}
+
+.search-text:focus {
+    box-shadow: none;
+    border-bottom: 0.0625rem solid;
+    border-bottom-color: rgba(128, 0, 128, 0.7);
+}
+
+.search-counter{
+    font-size: 0.75rem;
+    color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ================ Movie & Category section CSS =============== */
+
+/* ------------- For both Movie & Category section ------------- */
+.list-group {
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.list-group-item {
+    background-image: linear-gradient(to left, rgba(200, 100, 200, 0.1), rgba(255, 255, 255, 1));
+    border: none;
+}
+
+.child-counter, .movie-link-sub {
+    font-size: 0.75rem;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+/* ----------------------------- Category -------------------------- */
+
+input[type=checkbox] {
+    border: none;
+    display: none;
+}
+
+input[type=checkbox]:focus {
+    box-shadow: none;
+}
+
+input[type="checkbox"]:checked {
+    display: inline-block;
+    background-color: rgba(128, 0, 128, 0.9);
+}
+
+input[type="checkbox"] + label {
+    cursor: pointer;
+}    
+
+.list-group-category {
+    height: 9.5rem;    
+}
+
+.categories-unchecked-hover:hover {
+    background-color: rgba(255, 235, 255, 0.8);
+    color: rgba(100, 0, 100, 1);
+    font-weight: 600;
+    letter-spacing: 0.04rem;
+}
+
+.btn {
+    /* background-image: linear-gradient(to left, rgba(128, 0, 128, 1), rgba(220, 0, 220, 1)); */
+    border: none;
+    background-image: linear-gradient(to left, rgba(128, 0, 128, 1), rgba(200, 100, 200, 1));
+    color: rgba(255, 255, 255, 1);
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.02rem;
+}
+
+.btn:focus {
+    color: rgba(255, 255, 255, 1);
+}
+
+.btn:hover {
+    /* background-image: linear-gradient(to right, rgba(128, 0, 128, 1), rgba(220, 0, 220)); */
+    background-image: linear-gradient(to right, rgba(128, 0, 128, 1), rgba(200, 100, 200, 1));
+    color: rgba(255, 255, 255, 1);
+    font-weight: 600;
+}
+
+
+/* -------------------------- Movie ----------------------- */
+
+.list-group-movie {
+    /* height: 18.5rem; */
+    height: 27rem;
+}
+
+a {
+    text-decoration: none;
+}  
+
+a.movie-link {
+    color: rgba(0, 0, 0, 1);
+}
+
+a.movie-link:hover {
+    color: rgba(100, 0, 100, 1);
+}
+
+a.movie-link.active {
+    border-bottom: 0.0625rem solid rgba(128, 0, 128, 1);
+    padding-bottom: 0.1rem;
+    color: rgba(100, 0, 100, 1);    
+}
+
+.movie-link-card:hover {
+    border-radius: 0;
+    background-color: rgba(255, 235, 255, 0.8);    
+    font-weight: 600;
+    letter-spacing: 0.04rem;
+}
+
+.movie-link-card.active {
+    border-radius: 0;
+    border-left: 0.125rem solid rgba(128, 0, 128, 1);
+    background-color: rgba(255, 235, 255, 0.8);
+    color: rgba(100, 0, 100, 1);    
+    font-weight: 600;
+    letter-spacing: 0.04rem;
+}
+
+/* ===================== Quote section CSS ===================== */
+
+.btn-quote-search {     /* This is the lens icon of quote search */
+    display: none;
+    background-image: none;
+    color:  rgba(128,0,128,0.9);
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.all-or-moviename {
+    color: rgba(100, 0, 100, 1); 
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.bg-quote-body {
+    border: none;
+    background-image: linear-gradient(to left, rgba(200, 100, 200, 0.1), rgba(255, 255, 255, 1));
+}
+
+.accordion-button::after {
+    background-image: url('../img/bowArrowBlack.png');
+    transition: transform 0.4s ease-in-out;
+}
+
+.accordion-button:not(.collapsed)::after {
+    background-image: url('../img/bowArrowPurple.png');
+    transform: rotate(-180deg);
+}
+
+.accordion {
+    /* --bs-accordion-btn-focus-box-shadow: 0 0 0 0.25rem rgba(255, 225, 255, 1); */
+    --bs-accordion-btn-focus-box-shadow: 0 0 0 0.25rem rgba(200, 100, 200, 0.1);
+}
+
+.quote-heading-index{
+    font-family: monospace;
+    font-size: 0.875rem;
+    font-weight: 500;
+    /* color: rgba(0, 0, 0, 0.7); */
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.quote-movie-name {
+    margin-left: auto;
+    font-family: monospace;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.02rem;
+    /* color: rgba(0, 0, 0, 0.7); */
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.quote-heading {
+    margin-left: 0.3125rem;
+    font-family: monospace;
+    font-style: italic;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.02rem;
+    /* color: rgba(0, 0, 0, 0.7); */
+    color: rgba(0, 0, 0, 0.8);
+}  
+
+/* p-body = quote-speaker + quote-content ... */
+/* ... because both are in span. */
+/* quote-body doesn't include quote-ref because it is in div */
+.p-body {
+    font-size: 0.875rem;
+    text-align: justify;
+    color: rgba(0, 0, 0, 1);
+    letter-spacing: 0.03rem;
+    word-spacing: 0.04rem;
+    line-height: 1.5rem;
+}
+
+.quote-speaker {
+    font-weight: 600;
+}
+
+.quote-ref {
+    white-space: pre-line;
+    font-size: 0.75rem;
+    color: rgba(0, 0, 0, 0.7);
+    font-style: italic;
+}
+
+/* ==================== Pagination section CSS =================== */
+
+/* -------------------- Horizontal Pagination ----------------- */
+
+.page-link.hor-page-link{
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+    font-size: 0.75rem;
+    color: rgba(0, 0, 0, 1);
+    border: none;
+}
+
+.page-link.hor-page-link:hover{
+    color: rgba(100, 0, 100, 1);
+    background-color: rgba(255, 235, 255, 0.8);    
+    font-weight: 600;
+    letter-spacing: 0.04rem;
+}
+
+.page-link.hor-page-link.active {
+    border-bottom: 0.0625rem solid rgba(128, 0, 128, 1);
+    border-radius: 0;   
+    padding-bottom: 0.1rem;
+    color: rgba(100, 0, 100, 1);
+    font-weight: 600;
+    letter-spacing: 0.04rem;
+}
+
+.pagination.hor-pagination {
+    --bs-pagination-focus-box-shadow: none;
+    --bs-pagination-active-bg: none;
+}
+
+/* -------------------- Dropdown Pagination ----------------- */
+
+.ver-dropdown-menu {
+    --bs-dropdown-min-width: auto;
+    --bs-dropdown-bg: rgba(255, 245, 255, 0.8);
+    --bs-dropdown-border-color: none;    
+    --bs-dropdown-link-hover-bg: rgba(255, 235, 255, 0.8);    
+    --bs-dropdown-link-hover-color: rgba(100, 0, 100, 1);
+}
+
+.btn.btn-pagination-ddown {
+    background-image: none;
+    color: rgba(0, 0, 0, 1);
+    border: none;
+    border-radius: 0;
+    border-bottom: 0.0625rem solid rgba(0, 0, 0, 0.1);
+    font-size: 0.75rem;
+    font-weight: 400;
+}
+
+.btn.btn-pagination-ddown:hover {
+    border-bottom: 0.0625rem solid rgba(128, 0, 128, 0.7);
+    border-radius: 0;
+    background-color: rgba(255, 235, 255, 0.8);
+
+    font-weight: 600;
+    letter-spacing: 0.04rem;
+}
+
+.dropdown-item.ver-dropdown-item {
+    font-size: 0.75rem;
+}
+
+.dropdown-item.ver-dropdown-item:hover {
+    color: rgba(100, 0, 100, 1);
+    background-color: rgba(255, 235, 255, 0.8);    
+    font-weight: 600;
+    letter-spacing: 0.04rem;
+}
+
+.dropdown-item.ver-dropdown-item.active {
+    color: rgba(100, 0, 100, 1);
+    border-left: 0.0625rem solid rgba(128, 0, 128, 1);
+    background-color: rgba(255, 235, 255, 0.8);    
+    font-weight: 600 ; 
+    letter-spacing: 0.04rem;
+}
+
+/* ======================== Paragraph CSS ======================== */
+
+/* -------------------- Horizontal Pagination ----------------- */
+
+.font-cursive {
+    font-family: cursive;
+}
+
+a.p-body-link{
+    color: rgba(128, 0, 128, 1);
+    font-family: cursive;
+}
+
+a.p-body-link:hover{
+    color: rgba(128, 0, 128, 0.7);
+}
+
+.moqu-android {
+    color: rgba(128,0,128,1);
+    font-size: 1.25rem;
+}
+
+.moqu-android:hover {
+    color: rgba(128, 0, 128, 0.7);
+}
+
+/* ======================== API html CSS ======================== */
+
+/* -------------------- Button ----------------- */
+
+.btn-api {
+    padding: 0rem 0.625rem 0rem 0.625rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.btn-api:hover {
+    font-weight: 700;
+}

@@ -1,0 +1,104 @@
+<!-- This section displays all the Quotes -->
+
+<div class="">
+  <!-- Quote search -->
+  <div class="row mb-5 me-0">
+    <!-- Search input -->
+    <div class="col-7">
+      <div class="input-group mb-2 d-block" >
+        <form action="{% url 'moqu:home' %}#quotes" method="POST"> 
+          {% csrf_token %}
+          <div class="hstack gap-0">
+            <button class="btn btn-sm btn-quote-search" type="submit" name="search_in_quote" value="searchKeyword"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <input type="text" class="form-control search-text text-center" placeholder="Search Quote" name="quote_contains" value="{{search_keyword}}">
+          </div>
+          
+        </form>
+      </div>
+    </div>
+    <!-- Search result counter -->
+    <div class="col-5 search-counter justify-content-end pe-0">
+      {% if movie_name == 'All quotes' %}
+        {{quotes_display|length}} quotes found in {{movies_display|length}} movies!!
+      {% else %}
+      {{quotes_display|length}} quotes found !!
+      {% endif %}  
+    </div>
+  </div>
+
+  <!-- Movie Name to be displayed + Pagination Dropdown -->
+  <div class="row mb-5 mx-0">
+    <!-- Movie Name -->
+    <div class="col-7 all-or-moviename ps-0" >
+      {{movie_name}}
+    </div>
+    <!-- Pagination Dropdown -->
+    <div class="col-5 search-counter justify-content-end pe-0" >
+      {% include 'moqu/paginationDropdown.html' %}
+    </div>
+  </div>
+
+  <!-- Quote List -->
+  <div class="accordion mb-5" id="accordionPanels">
+      {% for movie, quote_set in quote_dictDisplay.items %}
+        {% with movie_index=forloop.counter %}
+          {% for quote_index, quote in quote_set.items %}
+            {% with quote_index_eachPage=forloop.counter %}
+              <div class="accordion-item mt-4 bg-quote-body rounded-4 shadow-sm">
+                <h2 class="accordion-header" id="heading-movie{{movie_index}}-quote{{quote_index}}">
+                  <button class="accordion-button rounded-4 {% if movie_index != 1 and quote_index_eachPage != 1 %} collapsed {% endif %}" style="background-image: linear-gradient(to right, rgba(200, 100, 200, 0.5), rgba(255, 255, 255, 1)); color: rgba(0, 0, 0, 1); " type="button" data-bs-toggle="collapse" data-bs-target="#collapse-movie{{movie_index}}-quote{{quote_index}}" aria-expanded="{% if movie_index == 1 and quote_index_eachPage == 1 %} true {% else %} false {% endif %}" aria-controls="collapse-movie{{movie_index}}-quote{{quote_index}}">
+                    <!-- Quote heading -->
+                    {% if movie_name == 'All quotes' %}
+                      <span class="quote-heading-index">Quote {{quote_index}}</span>
+                      <div class="quote-movie-name">{{movie}}</div>
+                    {% else %}
+                      <span class="quote-heading-index">{{quote_index}}.</span> 
+                        {% for line in quote %}
+                          <div class="quote-heading">
+                            {% with quote_heading=forloop.counter %}
+                              {% if quote_heading == 1 %}
+                                {% if line.0 == '' %}
+                                    {{line.1|truncatechars:15}}
+                                {% else %}
+                                    {{line.0}}{{line.1|truncatechars:10}}
+                                {% endif %}
+                              {% endif %}
+                            {% endwith %}  
+                          </div>
+                      {% endfor %} 
+                    {% endif %}
+                  </button>
+                </h2>
+                <!-- Quote body -->
+                <div id="collapse-movie{{movie_index}}-quote{{quote_index}}" class="accordion-collapse collapse {% if movie_index == 1 and quote_index_eachPage == 1 %} show {% endif %}" aria-labelledby="heading-movie{{movie_index}}-quote{{quote_index}}">
+                  <div class="accordion-body">                    
+                    {% for line in quote %}
+                      <p class="p-body">
+                        {% if line.0 == '' and line.2 == '' %}
+                          <span class="quote-content">{{line.1}}</span>
+                        {% elif line.0 == '' and line.2 != '' %}
+                          <span class="quote-content">{{line.1}}</span> <div class="quote-ref">{{line.2}}</div>
+                        {% elif line.0 != '' and line.2 == '' %}
+                          <span class="quote-speaker">{{line.0}}</span> <span class="quote-content">{{line.1}}</span>
+                        {% elif line.0 != '' and line.2 != '' %}
+                          <span class="quote-speaker">{{line.0}}</span> <span class="quote-content">{{line.1}}</span> <div class="quote-ref">{{line.2}}</div>
+                        {% endif %}
+                      </p>
+                    {% endfor %}
+                  </div>
+                </div>      
+              </div>
+              {% endwith %}
+          {% endfor %}
+        {% endwith %}
+      {% endfor %}
+  </div>
+
+  <!-- Pagination bar -->
+  <div class="mb-5" style="margin-top: 5rem;">
+    {% include 'moqu/pagination.html' %}
+  </div>
+
+</div>
+
+

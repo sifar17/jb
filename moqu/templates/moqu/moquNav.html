@@ -1,0 +1,95 @@
+{% load static %}
+
+<!-- Collapsible Navbar visible on smaller screens -->
+<nav class="navbar fixed-top d-sm-none shadow-sm" style="background-image: linear-gradient(to left, rgba(128, 0, 128, 0.9), rgba(200, 150, 200, 0.9));">
+  <div class="container-fluid">
+    <!-- Navbar Open button - 3 Dots -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+      <span class="navbar-toggler-icon menu-btn-open"></span>
+    </button>
+    <!-- Navbar = header + body -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <!-- Navbar header/titlebar -->
+      <div class="offcanvas-header shadow-sm" style="background-image: linear-gradient(to left, rgba(200, 100, 200, 1), rgba(255, 255, 255, 1));">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Explore Moqu</h5>
+        <button type="button" class="btn-close menu-btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <!-- Navbar body -->
+      <div class="offcanvas-body ">
+        <ul class="navbar-nav justify-content-end flex-grow-1">
+          <!-- Item_1. Moqu -->
+          <li class="nav-item ">
+            <a class="nav-link moqu-nav-ver {{moquHome_active}}" aria-current="page" href="{% url 'moqu:home' %}">
+              <div class="hstack gap-4" >                  
+                <div class="" ><i class="fa-solid fa-house"></i></div>
+                <div class="moqu-tab-ver {{moquHome_active}}">Moqu</div>
+              </div>
+            </a>
+          </li>
+          <!-- Item_2 Know Moqu -->
+          <li class="nav-item ">
+            <a class="nav-link moqu-nav-ver {{moquAbout_active}}" href="{% url 'moqu:about' %}">
+              <div class="hstack gap-4" >
+                <div class="" ><i class="fa-solid fa-handshake-simple"></i></div>
+                <div class="moqu-tab-ver {{moquAbout_active}}">Know Moqu</div>
+              </div>
+            </a>
+          </li>
+          <!-- Item_3 Moqu API -->
+          <li class="nav-item mb-3">
+            <a class="nav-link moqu-nav-ver {{moquApi_active}}" href="{% url 'moqu:apiAbout' %}">
+              <div class="hstack gap-4" >                  
+                <div class="" ><i class="fa-sharp fa-solid fa-database"></i></div>
+                <div class="moqu-tab-ver {{moquApi_active}}">Moqu API</div>
+              </div>
+            </a>
+          </li>
+          <!-- Line break-->
+          <hr class="my-3" style="color: rgba(128, 0, 128, 1);">
+          <!-- Item_4 Moqu Android App -->
+          <li class="nav-item mt-3">
+            <a class="nav-link moqu-nav-ver" href="https://www.amazon.com/dp/B0B7L62LBG/ref=apps_sf_sta" target="_blank">
+              <div class="hstack gap-4 justify-content-center" >                  
+                <div class="" ><img class="img-fluid rounded-circle" src="{% static 'moqu/img/logoMoqu.png' %}" alt="Moqu Logo" style="width:2rem; height:2rem;"></div>
+                <div class="moqu-tab-ver">Android</div>
+              </div>
+            </a>
+          </li>
+          <!-- Item_5 JB home -->
+          <li class="nav-item ">
+            <a class="nav-link moqu-nav-ver" href="{% url 'base:home' %}">
+              <div class="hstack gap-4 justify-content-center" >                  
+                <div class="" ><img class="img-fluid rounded-circle" src="{% static 'moqu/img/logoJb.png' %}" alt="JB Logo" style="width:3rem; height:3rem;"></div>
+                <!-- <div class="moqu-tab-ver">JB</div> -->
+              </div>
+            </a>
+          </li>
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+
+  <!-- Horizontal navbar visible on bigger screens -->
+
+<nav class="nav nav-fill d-none d-sm-flex" style="background-color: rgba(255, 255, 255, 0.9);">
+  <!-- Item_1 Moqu -->
+  <a class="nav-link moqu-nav-hor d-flex justify-content-start {{moquHome_active}}" href="{% url 'moqu:home' %}" >
+    <div class="d-inline-flex moqu-tab-hor {{moquHome_active}}" >
+      <img class="img-fluid rounded-circle m-1" src="{% static 'moqu/img/logoMoqu.png' %}" alt="Moqu Logo" style="width:2.5rem; height:2.5rem;">
+    </div>      
+  </a>
+  <!-- Item_2 Know Moqu -->
+  <a class="nav-link moqu-nav-hor {{moquAbout_active}} d-flex align-items-center justify-content-center " href="{% url 'moqu:about' %}" >
+    <div class="moqu-tab-hor {{moquAbout_active}}">
+      Know Moqu
+    </div>
+  </a>
+  <!-- Item_3 Moqu API -->
+  <a class="nav-link moqu-nav-hor {{moquApi_active}} d-flex align-items-center justify-content-end" href="{% url 'moqu:apiAbout' %}">
+    <div class="moqu-tab-hor {{moquApi_active}}">
+      Moqu API
+    </div>
+  </a>
+</nav>

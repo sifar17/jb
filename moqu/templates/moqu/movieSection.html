@@ -1,0 +1,54 @@
+<div id="movies" class="">
+    <!-- Movie search -->
+        <div class="row mb-5 mt-5">
+            <div class="col-7">
+                <div class="input-group mb-1">
+                    <form action="{% url 'moqu:home' %}#movies" method="GET"> 
+                        <input type="text" class="form-control search-text text-center" placeholder="Search Source" name="movie_contains" value="{{qmovie}}" >
+                    </form>            
+                </div>        
+            </div>
+            <div class="col-5 offset-0 search-counter">
+                {% if qmovie %}
+                    {{movies_display | length}} Result{{movies_display | length | pluralize}} Found!!
+                {% endif %}
+            </div>
+        </div>        
+    <!-- Movie List -->
+        <div class="overflow-auto ovf" >
+            <ul class="list-group list-group-movie" >
+                <!-- This if condition is to display the active movie on top -->
+                {% if movie_name != 'All quotes' %}                        
+                    <li class="list-group-item d-flex justify-content-between movie-link-card active">
+                        <span>{{movie_name.id}}.</span>
+                        <div class="ms-2 me-auto ">
+                            <a class="stretched-link movie-link active" href="{% url 'moqu:quotePage' movie_name.id %}?movie={{movie_name.name}}#movies ">
+                                {{movie_name.name}}
+                            </a>
+                            <div class="movie-link-sub mt-1">{{movie_name.category}}</div>
+                        </div>
+                        <div class="child-counter ms-3">
+                            {{movie_name.quotes.all.count}}
+                        </div>
+                    </li>
+                {% endif %}
+                <!-- This loop statement displays all the inactive movies below -->
+                {% for movie in movies_display %}
+                    {% if movie.id != movie_name.id %}
+                        <li class="list-group-item d-flex justify-content-between movie-link-card">
+                            <span>{{movie.id}}.</span>
+                            <div class="ms-2 me-auto">
+                                <a class="stretched-link movie-link" href="{% url 'moqu:quotePage' movie.id %}?movie={{movie.name}}#movies ">
+                                    {{movie.name}}
+                                </a>
+                                <div class="movie-link-sub mt-1">{{movie.category}}</div>
+                            </div>
+                            <div class="child-counter ms-3">
+                                {{movie.quotes.all.count}}
+                            </div>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+</div>

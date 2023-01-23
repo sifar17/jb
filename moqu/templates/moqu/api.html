@@ -1,0 +1,114 @@
+<!-- This is Moqu API page -->
+
+{% extends 'moqu/index.html' %}
+{% load static %}
+
+{% block title %} Moqu API {% endblock title %}
+
+{% block bannerMoqu %}
+{% endblock bannerMoqu %}
+
+{% block content %}
+
+    <!-- About section -->
+    <div class="col-lg-12 my-5 pb-5 px-4">
+        
+        <p class="p-body"> Hello there!! Thank you for coming this 
+            far.
+        </p>
+
+        <p class="p-body">
+            While creating this collection, Moqu felt &#129300; 
+            that there 
+            might be some people who would need these quotes to use 
+            in their own way, on their own platforms or at some place 
+            of their own choice.
+        </p>
+        
+        <p class="p-body">
+            So, Moqu called me, the API, over and said "Hey API! 
+            Give me a hand to fulfill this purpose. Help me to 
+            create a medium where people can find my collection of 
+            data (quotes along with sources) in a format (json here) 
+            that they can use in their own way". 
+        </p>
+
+        <p class="p-body"> So, here I am with this 
+            <a class="p-body-link" href="{% url 'moqu:api:api-root' %}">
+                API room</a> that accomadates all the endpoints. 
+
+            Now, you can access the whole bunch of Moqu's data by 
+            reaching out to this room.
+        </p>
+
+        <p class="p-body">
+            As of now, you do not need an API key, you don't need 
+            to login or subscribe, just reach the API Room and 
+            access the data.
+        </p>
+
+        <p class="">
+            <div class="p-body mb-2" style="font-weight: 700;">There are three endpoints</div>
+            <dl class="row p-body">
+                <dt class="col-sm-3" style="font-weight: 600;">Categories <a href="{% url 'moqu:api:category-list' %}" class="rounded-pill btn btn-sm btn-api">GET</a></dt>
+                <dd class="col-sm-9">
+                    You can find all the categories  
+                    <a class="p-body-link" href="{% url 'moqu:api:category-list' %}">here</a>, 
+                    their ids and a list of sources belonging to 
+                    the respective category.
+
+                    You can access a particular category 
+                    by putting its id at the very end of this 
+                    endpoint in the url as /endpoint/&lt;id&gt; e.g. <a class="p-body-link" href="{% url 'moqu:api:category-detail' 1 %}">/category/1</a>.
+                </dd>
+
+                <dt class="col-sm-3" style="font-weight: 600;">Movies <a href="{% url 'moqu:api:movie-list' %}" class="rounded-pill btn btn-sm btn-api">GET</a></dt>
+                <dd class="col-sm-9">
+                    You can find all the sources  
+                    <!-- <a class="p-body-link" href="http://127.0.0.1:8000/moqu/moqu-api/movie/">here</a>,  -->
+                    <a class="p-body-link" href="{% url 'moqu:api:movie-list' %}">here</a>, 
+                    their ids, categories and a list of their quotes.
+
+                    You can access a particular movie 
+                    by putting its id at the very end of this 
+                    endpoint in the url as /endpoint/&lt;id&gt; e.g. <a class="p-body-link" href="{% url 'moqu:api:movie-detail' 1 %}">/movie/1</a>.
+                </dd>
+              
+                <dt class="col-sm-3" style="font-weight: 600;">Quotes <a href="{% url 'moqu:api:quote-list' %}" class="rounded-pill btn btn-sm btn-api">GET</a></dt>
+                <dd class="col-sm-9">
+                    You can find all the quotes 
+                    <a class="p-body-link" href="{% url 'moqu:api:quote-list' %}">here</a>, 
+                    their ids and name of their sources.
+                    You can access a particular quote by 
+                    putting its id at the very end of this endpoint 
+                    in the url as /endpoint/&lt;id&gt; e.g. <a class="p-body-link" href="{% url 'moqu:api:quote-detail' 1 %}">/quote/1</a>.
+                </dd>
+            </dl>
+        </p>
+
+        <p class="p-body">
+            <span style="font-weight: 700;">Requests/day: </span> 100 
+            for a unique IP address. <br>
+            In order to avoid the overcrowding on such a small platform &#128542;, 
+            a limit has been put on the number of 
+            times that you can visit the API room which is 100 per day as of now. 
+            However, at any time, if you feel this limit to be increased, 
+            please send an 
+            <a class="p-body-link" href="mailto:jayanttobina@gmail.com">
+                email to Jugadubhai
+            </a> 
+            and I will be more than happy &#128515; to increase the limit.
+        </p>
+
+        <p class="p-body">
+            Currently, I am available for GET requests only and not 
+            for POST requests i.e. you can access/read all the data 
+            but can not update or delete any. However, I will soon add 
+            the POST methods as well like Create, Update, Delete, 
+            etc.
+        </p>
+
+    </div>
+
+
+{% endblock content %}

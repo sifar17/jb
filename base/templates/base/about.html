@@ -1,0 +1,85 @@
+{% extends 'base/index.html' %}
+
+{% block title %} About us | JB {% endblock title %}
+
+{% block content %}
+
+    <!-- <div class="conatiner-fluid sticky-top" style="background-image: linear-gradient(to right, rgba(121, 40, 202, 1), rgba(255, 0, 128, 1));"> -->
+    <div class="conatiner-fluid sticky-top" style="background-image: linear-gradient(to right, rgba(103, 61, 230, 0.9), rgba(255, 0, 128, 0.9));">
+        <div class="container">
+        <!-- Back to JB + Modal -->
+        <div class="row d-flex align-items-center">
+            <!-- Back to JB -->
+            <div class="col-1 offset-1 ">
+                <a class="btn btn-primary btn-modal-sm ps-0" href="{% url 'base:home' %}"><i class="fa-solid fa-person-walking-arrow-loop-left"></i></a>
+            </div>
+            <!-- Modal Section -->    
+            <div class="col-1 offset-8 d-flex justify-content-end pe-0">
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary btn-modal-sm" data-bs-toggle="modal"  data-bs-target="#jbModal">
+                    <i class="fa-solid fa-person-walking-dashed-line-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+        </div>        
+    </div>
+    <!-- Modal body -->
+    {% include 'base/modal.html' %}          
+    <div class="container my-5">
+        <!-- About section -->
+        <div class="row ">
+            <div class="col-10 offset-1 mt-5 ">
+            <!-- <div class="col-10 offset-1 offset-sm-0 ms-4 my-5 py-5 border"> -->
+                <p class="">
+                    <div class="p-body p-heading"> Who we are</div>
+                    <div class="p-body"> 
+                    We are Jugadubhai, a team of thinkers and creators.
+                    </div>
+                </p>
+                <p > 
+                    <div class="p-body p-heading">Mission</div>
+                    <div class="p-body">
+                    To benefit users through our free, open to all and multidisciplinary projects. 
+                    </div>
+                </p>
+                <p> 
+                    <div class="p-body p-heading"> What we do</div>
+                    <dl class="row p-body mt-1">
+                        <dt class="col-sm-3 " style="font-weight: 600;">Apps</dt>
+                        <dd class="col-sm-9">
+                            Not confined to a particular field, we are here to create projects from different fields which individually will benefit the specific users especially looking for a particular project and as a whole will benefit many.
+                        </dd>
+                    
+                        <dt class="col-sm-3" style="font-weight: 600;">API</dt>
+                        <dd class="col-sm-9">
+                            Along with projects, we create and maintain free APIs as well. So, the users can access the data used in those projects for their own usages.
+                            Our projects and APIs are absolutely and forever free to access. Nothing expected in return, neither a penny nor any gratitude.
+                        </dd>     
+                    </dl>
+                </p>
+                <p>
+                    <div class="p-body p-heading"> Our Projects</div> 
+                    <div class="p-body ">
+                    Our first project, 
+                    <a class="a-p" href="{% url 'moqu:home' %}"> Moqu</a>, 
+                    is live here along with its 
+                    <a class="a-p" href="{% url 'moqu:apiAbout' %}">API</a>. 
+                    It is a web application targeting the specific audience looking for quotes from various sources which are mainly rare.
+                    </div>
+                    <div class="p-body">
+                    We have already made its android version live on 
+                    Amazon Appstore. You can get it for free 
+                    <a class="a-p" href="https://www.amazon.com/dp/B0B7L62LBG/ref=apps_sf_sta" target="_blank">here</a>.
+                    </div>
+                </p>
+                <p>
+                    <div class="p-body p-heading">Next</div>
+                    <div class="p-body"> 
+                    We have more projects on the way. Next are some Data Science projects under our sleeve. And there are more to come which we are working on. 
+                    </div>
+                </p>
+            </div>  
+        </div>
+    </div>
+
+{% endblock content %}
