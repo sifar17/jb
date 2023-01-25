@@ -17,7 +17,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from django.urls import re_path
+from django.conf import settings
+from django.views.static import serve
+
 urlpatterns = [
+    re_path(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),
+
     path('admin/', admin.site.urls),
     path('', include('base.urls', namespace = 'base')),
     path('', include('moqu.urls', namespace = 'moqu')),    

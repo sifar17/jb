@@ -10,7 +10,7 @@
           {% csrf_token %}
           <div class="hstack gap-0">
             <button class="btn btn-sm btn-quote-search" type="submit" name="search_in_quote" value="searchKeyword"><i class="fa-solid fa-magnifying-glass"></i></button>
-            <input type="text" class="form-control search-text text-center" placeholder="Search Quote" name="quote_contains" value="{{search_keyword}}">
+            <input type="text" class="form-control search-text text-sm-center" placeholder="Search Quote" name="quote_contains" value="{{search_keyword}}">
           </div>
           
         </form>
@@ -19,9 +19,9 @@
     <!-- Search result counter -->
     <div class="col-5 search-counter justify-content-end pe-0">
       {% if movie_name == 'All quotes' %}
-        {{quotes_display|length}} quotes found in {{movies_display|length}} movies!!
+        {{quotes_display|length}} quote{{quotes_display|length|pluralize}} found in {{movies_display|length}} source{{movies_display|length|pluralize}}!!
       {% else %}
-      {{quotes_display|length}} quotes found !!
+        {{quotes_display|length}} quote{{quotes_display|length|pluralize}} found !!
       {% endif %}  
     </div>
   </div>
